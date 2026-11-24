@@ -52,8 +52,9 @@
    - 5.3 Keandalan & Ketersediaan (Reliability & Availability)
    - 5.4 Kemudahan Penggunaan (Usability Requirements)
    - 5.5 Pemeliharaan & Portabilitas (Maintainability & Portability)
-6. [Matriks Ketertelusuran Kebutuhan (Traceability Matrix)](#6-matriks-ketertelusuran-kebutuhan)
-7. [Lembar Pengesahan (Sign-Off)](#7-lembar-pengesahan)
+6. [Diagram Relasi Entitas (Entity-Relationship Diagram / ERD)](#6-diagram-relasi-entitas)
+7. [Matriks Ketertelusuran Kebutuhan (Traceability Matrix)](#7-matriks-ketertelusuran-kebutuhan)
+8. [Lembar Pengesahan (Sign-Off)](#8-lembar-pengesahan)
 
 ---
 
@@ -240,7 +241,139 @@ Setiap kebutuhan fungsional diberi kode unik dengan format: `FR-[MODUL]-[NOMOR]`
 
 ---
 
-## 6. Matriks Ketertelusuran Kebutuhan (Traceability Matrix)
+## 6. Diagram Relasi Entitas (Entity-Relationship Diagram / ERD)
+
+Berikut adalah diagram relasi entitas (*Entity-Relationship Diagram*) yang menggambarkan struktur 16 tabel relasional dalam basis data `sismo_smkit`:
+
+```mermaid
+erDiagram
+    tb_sekolah ||--o{ tb_karyawan : "mempekerjakan (1:N)"
+    tb_sekolah ||--o{ tb_jurusan : "memiliki (1:N)"
+    tb_sekolah ||--o{ tb_kelas : "memiliki (1:N)"
+    tb_sekolah ||--o{ tb_siswa : "mendaftar (1:N)"
+    tb_sekolah ||--o{ tb_pelajaran : "menyelenggarakan (1:N)"
+    tb_sekolah ||--o{ tb_tagihan : "menerbitkan (1:N)"
+    tb_sekolah ||--o{ tb_info_sekolah : "mempublikasikan (1:N)"
+
+    tb_jurusan ||--o{ tb_siswa : "program_keahlian (1:N)"
+    tb_kelas ||--o{ tb_siswa : "ditempatkan_di (1:N)"
+    tb_kelas ||--o{ tb_tagihan : "alokasi_tarif (1:N)"
+
+    tb_pelajaran ||--o{ tb_jadwal : "dijadwalkan (1:N)"
+    tb_kelas ||--o{ tb_jadwal : "ruang_belajar (1:N)"
+
+    tb_siswa ||--o{ tb_absensi : "presensi_harian (1:N)"
+    tb_pelajaran ||--o{ tb_absensi : "mata_pelajaran (1:N)"
+
+    tb_siswa ||--o{ tb_nilai_akademik : "capaian_nilai (1:N)"
+    tb_pelajaran ||--o{ tb_nilai_akademik : "evaluasi_mapel (1:N)"
+
+    tb_tagihan ||--o{ tb_pembayaran : "dibayar_melalui (1:N)"
+    tb_siswa ||--o{ tb_pembayaran : "disetor_oleh (1:N)"
+
+    tb_siswa ||--o{ tb_konseling : "konseling_siswa (1:N)"
+    tb_karyawan ||--o{ tb_konseling : "guru_konselor (1:N)"
+    tb_pelanggaran ||--o{ tb_konseling : "jenis_sanksi (1:N)"
+
+    tb_sekolah {
+        varchar npsn PK
+        varchar nama_sekolah
+        varchar status_sekolah
+        varchar alamat
+    }
+
+    tb_karyawan {
+        varchar kode_guru PK
+        varchar npsn FK
+        varchar nama_karyawan
+        varchar status_kepegawaian
+    }
+
+    tb_siswa {
+        varchar nipd PK
+        varchar npsn FK
+        int id_kelas FK
+        int id_jurusan FK
+        varchar nama_siswa
+        varchar password_siswa
+        varchar password_wali
+    }
+
+    tb_kelas {
+        int id_kelas PK
+        varchar nama_kelas
+    }
+
+    tb_jurusan {
+        int id_jurusan PK
+        varchar npsn FK
+        varchar nama_jurusan
+    }
+
+    tb_pelajaran {
+        varchar kode_mapel PK
+        varchar npsn FK
+        varchar nama_mapel
+    }
+
+    tb_jadwal {
+        int id_jadwal PK
+        varchar kode_mapel FK
+        int id_kelas FK
+        varchar hari
+        time jam_mulai
+    }
+
+    tb_absensi {
+        int kode_absensi PK
+        varchar nipd FK
+        varchar kode_mapel FK
+        date tanggal
+        varchar status_kehadiran
+    }
+
+    tb_nilai_akademik {
+        int id_nilai PK
+        varchar nipd FK
+        varchar kode_mapel FK
+        double nilai_tugas
+        double nilai_uts
+        double nilai_uas
+    }
+
+    tb_tagihan {
+        int id_tagihan PK
+        int id_kelas FK
+        varchar nama_tagihan
+        double nominal
+    }
+
+    tb_pembayaran {
+        int id_pembayaran PK
+        int id_tagihan FK
+        varchar nipd FK
+        double jumlah_bayar
+        date tgl_bayar
+    }
+
+    tb_konseling {
+        int id_konseling PK
+        varchar nipd FK
+        varchar kode_guru FK
+        varchar kode_pelanggaran FK
+        text deskripsi_masalah
+    }
+
+    tb_pelanggaran {
+        varchar kode_pelanggaran PK
+        varchar nama_pelanggaran
+        int poin_sanksi
+    }
+```
+
+---
+
+## 7. Matriks Ketertelusuran Kebutuhan (Traceability Matrix)
 
 | Kode Kebutuhan Fungsional | Deskripsi Singkat | Tabel Basis Data Terkait | Peran Pengguna Utama |
 |---|---|---|---|
@@ -257,7 +390,7 @@ Setiap kebutuhan fungsional diberi kode unik dengan format: `FR-[MODUL]-[NOMOR]`
 
 ---
 
-## 7. Lembar Pengesahan (Sign-Off)
+## 8. Lembar Pengesahan (Sign-Off)
 
 Dokumen Spesifikasi Kebutuhan Perangkat Lunak (*Software Requirements Specification*) ini telah diverifikasi dan disetujui sebagai acuan teknis resmi pengembangan sistem.
 

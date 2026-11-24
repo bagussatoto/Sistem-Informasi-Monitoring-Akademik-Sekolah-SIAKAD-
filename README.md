@@ -28,7 +28,7 @@
 - [Infrastruktur & Stack Teknis](#-infrastruktur--stack-teknis)
 - [Struktur Direktori Proyek](#-struktur-direktori-proyek)
 - [Panduan Instalasi & Konfigurasi](#-panduan-instalasi--konfigurasi)
-- [Skema Basis Data](#-skema-basis-data)
+- [Skema Basis Data & Diagram Relasi Entitas (ERD)](#-skema-basis-data--diagram-relasi-entitas-erd)
 - [Profil Pengembang](#-profil-pengembang)
 - [Lisensi](#-lisensi)
 
@@ -283,18 +283,148 @@ http://localhost/siakad/
 
 ---
 
-## 🗄️ Skema Basis Data
+## 🗄️ Skema Basis Data & Diagram Relasi Entitas (ERD)
 
-Sistem ini didukung oleh relasi tabel basis data `sismo_smkit`:
-- `tb_admin`: Kredensial dan profil administrator utama.
-- `tb_sekolah`: Informasi identitas institusi sekolah dan NPSN.
-- `tb_karyawan`: Data guru, staf tata usaha, kepala sekolah, dan guru BK.
+Sistem ini didukung oleh basis data relasional `sismo_smkit` yang terintegrasi secara modular dengan isolasi data antar-instansi berbasis NPSN:
+
+### 1. Diagram Relasi Entitas (Entity-Relationship Diagram / ERD)
+
+```mermaid
+erDiagram
+    tb_sekolah ||--o{ tb_karyawan : "mempekerjakan (1:N)"
+    tb_sekolah ||--o{ tb_jurusan : "memiliki (1:N)"
+    tb_sekolah ||--o{ tb_kelas : "memiliki (1:N)"
+    tb_sekolah ||--o{ tb_siswa : "mendaftar (1:N)"
+    tb_sekolah ||--o{ tb_pelajaran : "menyelenggarakan (1:N)"
+    tb_sekolah ||--o{ tb_tagihan : "menerbitkan (1:N)"
+    tb_sekolah ||--o{ tb_info_sekolah : "mempublikasikan (1:N)"
+
+    tb_jurusan ||--o{ tb_siswa : "program_keahlian (1:N)"
+    tb_kelas ||--o{ tb_siswa : "ditempatkan_di (1:N)"
+    tb_kelas ||--o{ tb_tagihan : "alokasi_tarif (1:N)"
+
+    tb_pelajaran ||--o{ tb_jadwal : "dijadwalkan (1:N)"
+    tb_kelas ||--o{ tb_jadwal : "ruang_belajar (1:N)"
+
+    tb_siswa ||--o{ tb_absensi : "presensi_harian (1:N)"
+    tb_pelajaran ||--o{ tb_absensi : "mata_pelajaran (1:N)"
+
+    tb_siswa ||--o{ tb_nilai_akademik : "capaian_nilai (1:N)"
+    tb_pelajaran ||--o{ tb_nilai_akademik : "evaluasi_mapel (1:N)"
+
+    tb_tagihan ||--o{ tb_pembayaran : "dibayar_melalui (1:N)"
+    tb_siswa ||--o{ tb_pembayaran : "disetor_oleh (1:N)"
+
+    tb_siswa ||--o{ tb_konseling : "konseling_siswa (1:N)"
+    tb_karyawan ||--o{ tb_konseling : "guru_konselor (1:N)"
+    tb_pelanggaran ||--o{ tb_konseling : "jenis_sanksi (1:N)"
+
+    tb_sekolah {
+        varchar npsn PK
+        varchar nama_sekolah
+        varchar status_sekolah
+        varchar alamat
+    }
+
+    tb_karyawan {
+        varchar kode_guru PK
+        varchar npsn FK
+        varchar nama_karyawan
+        varchar status_kepegawaian
+    }
+
+    tb_siswa {
+        varchar nipd PK
+        varchar npsn FK
+        int id_kelas FK
+        int id_jurusan FK
+        varchar nama_siswa
+        varchar password_siswa
+        varchar password_wali
+    }
+
+    tb_kelas {
+        int id_kelas PK
+        varchar nama_kelas
+    }
+
+    tb_jurusan {
+        int id_jurusan PK
+        varchar npsn FK
+        varchar nama_jurusan
+    }
+
+    tb_pelajaran {
+        varchar kode_mapel PK
+        varchar npsn FK
+        varchar nama_mapel
+    }
+
+    tb_jadwal {
+        int id_jadwal PK
+        varchar kode_mapel FK
+        int id_kelas FK
+        varchar hari
+        time jam_mulai
+    }
+
+    tb_absensi {
+        int kode_absensi PK
+        varchar nipd FK
+        varchar kode_mapel FK
+        date tanggal
+        varchar status_kehadiran
+    }
+
+    tb_nilai_akademik {
+        int id_nilai PK
+        varchar nipd FK
+        varchar kode_mapel FK
+        double nilai_tugas
+        double nilai_uts
+        double nilai_uas
+    }
+
+    tb_tagihan {
+        int id_tagihan PK
+        int id_kelas FK
+        varchar nama_tagihan
+        double nominal
+    }
+
+    tb_pembayaran {
+        int id_pembayaran PK
+        int id_tagihan FK
+        varchar nipd FK
+        double jumlah_bayar
+        date tgl_bayar
+    }
+
+    tb_konseling {
+        int id_konseling PK
+        varchar nipd FK
+        varchar kode_guru FK
+        varchar kode_pelanggaran FK
+        text deskripsi_masalah
+    }
+
+    tb_pelanggaran {
+        varchar kode_pelanggaran PK
+        varchar nama_pelanggaran
+        int poin_sanksi
+    }
+```
+
+### 2. Kamus Entitas & Relasi Data
+- `tb_admin`: Kredensial dan profil administrator utama tingkat yayasan/pusat.
+- `tb_sekolah`: Informasi identitas institusi sekolah dan NPSN (induk relasi tenant).
+- `tb_karyawan`: Data guru, staf tata usaha, kepala sekolah, dan konselor BK.
 - `tb_siswa`: Data induk siswa lengkap beserta NIPD dan akun wali murid.
 - `tb_kelas` & `tb_jurusan`: Master data tingkatan kelas dan kompetensi keahlian.
 - `tb_pelajaran` & `tb_jadwal`: Data mata pelajaran dan penjadwalan ruang/jam.
 - `tb_absensi`: Rekam jejak presensi kehadiran siswa per tanggal.
-- `tb_nilai_akademik`: Evaluasi hasil belajar siswa per mata pelajaran.
-- `tb_tagihan` & `tb_pembayaran`: Pos tagihan biaya pendidikan dan histori transaksi.
+- `tb_nilai_akademik`: Evaluasi hasil belajar siswa per mata pelajaran (Tugas, UTS, UAS).
+- `tb_tagihan` & `tb_pembayaran`: Pos tagihan biaya pendidikan dan histori transaksi kasir.
 - `tb_konseling` & `tb_pelanggaran`: Buku catatan bimbingan konseling dan sanksi poin siswa.
 - `tb_pesan`: Modul komunikasi pesan masuk/keluar antar pengguna.
 
