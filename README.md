@@ -150,9 +150,9 @@ Berikut beberapa dokumentasi antarmuka aplikasi:
 |:---:|:---:|
 | <img src="https://user-images.githubusercontent.com/55027286/65805933-bbef6480-e1b1-11e9-8e8c-08e28a9a7e11.png" width="400" alt="Login"/> | <img src="https://user-images.githubusercontent.com/55027286/65805852-6a46da00-e1b1-11e9-9286-c1aebe6f7916.png" width="400" alt="Web Sekolah"/> |
 
-| Form Pendaftaran / Input Siswa | Halaman Data Induk Siswa |
+<!-- | Form Pendaftaran / Input Siswa | Halaman Data Induk Siswa |
 |:---:|:---:|
-| <img src="https://user-images.githubusercontent.com/55027286/65805986-d9bcc980-e1b1-11e9-8d45-c1db9ddb70db.png" width="400" alt="Form Siswa"/> | <img src="https://user-images.githubusercontent.com/55027286/65805969-cc074400-e1b2-11e9-9f20-4f723acb3979.png" width="400" alt="Data Induk Siswa"/> |
+| <img src="https://user-images.githubusercontent.com/55027286/65805986-d9bcc980-e1b1-11e9-8d45-c1db9ddb70db.png" width="400" alt="Form Siswa"/> | <img src="https://i.postimg.cc/pr7w4TfS/Data-Induk-Siswa-Form.png" width="400" alt="Data Induk Siswa"/> | -->
 
 | Profil Lengkap Siswa | Manajemen Jadwal & Mata Pelajaran |
 |:---:|:---:|
@@ -476,3 +476,6 @@ Proyek ini dikembangkan dan dirancang oleh:
 ## 📄 Lisensi
 
 Proyek ini dikembangkan untuk kebutuhan manajemen institusi sekolah dan peningkatan transparansi monitoring akademik. Hak cipta dilindungi dan didistribusikan sesuai ketentuan internal pengembang.
+
+
+[def]: ttps://user-images.githubusercontent.com/55027286/65805969-cc074400-e1b2-11e9-9f20-4f723acb3979.pn
