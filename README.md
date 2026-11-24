@@ -61,13 +61,14 @@ SIAKAD mendukung autentikasi cerdas multi-level dalam satu pintu login terpadu:
 
 ## 📚 Dokumentasi Resmi & Publikasi Ilmiah
 
+
 Tersedia paket dokumentasi teknis dan publikasi ilmiah lengkap di direktori `docs/`:
 
 | Jenis Dokumen | Deskripsi Standar | Unduh Versi PDF | Versi Word (.doc) | Versi Markdown (.md) |
 |---|---|:---:|:---:|:---:|
-| **SRS Formal** | *Software Requirements Specification* (Standar IEEE Std 830 / ISO 29148) | [📄 Unduh PDF](file:///d:/Project/sistem/siakad/docs/SRS_FORMAL_SIAKAD.pdf) | [📝 Unduh DOC](file:///d:/Project/sistem/siakad/docs/SRS_FORMAL_SIAKAD.doc) | [📋 Baca MD](file:///d:/Project/sistem/siakad/docs/SRS_FORMAL_SIAKAD.md) |
-| **Jurnal Ilmiah** | Artikel Ilmiah: *Rancang Bangun SIAKAD Menggunakan Metode Waterfall* | [📄 Unduh PDF](file:///d:/Project/sistem/siakad/docs/JURNAL_ILMIAH_SIAKAD.pdf) | [📝 Unduh DOC](file:///d:/Project/sistem/siakad/docs/JURNAL_ILMIAH_SIAKAD.doc) | [📋 Baca MD](file:///d:/Project/sistem/siakad/docs/JURNAL_ILMIAH_SIAKAD.md) |
-| **Spesifikasi Modul (FSD)** | Dokumen Spesifikasi 10 Modul Fungsional & Matriks Hak Akses | [📄 Unduh PDF](file:///d:/Project/sistem/siakad/docs/DOKUMENTASI_MODUL_FUNGSIONAL.pdf) | [📝 Unduh DOC](file:///d:/Project/sistem/siakad/docs/DOKUMENTASI_MODUL_FUNGSIONAL.doc) | [📋 Baca MD](file:///d:/Project/sistem/siakad/docs/MODUL_FUNGSIONAL.md) |
+| **SRS Formal** | *Software Requirements Specification* (Standar IEEE Std 830 / ISO 29148) | [📄 Unduh PDF](docs/SRS_FORMAL_SIAKAD.pdf) | [📝 Unduh DOC](docs/SRS_FORMAL_SIAKAD.doc) | [📋 Baca MD](docs/SRS_FORMAL_SIAKAD.md) |
+| **Jurnal Ilmiah** | Artikel Ilmiah: *Rancang Bangun SIAKAD Menggunakan Metode Waterfall* | [📄 Unduh PDF](docs/JURNAL_ILMIAH_SIAKAD.pdf) | [📝 Unduh DOC](docs/JURNAL_ILMIAH_SIAKAD.doc) | [📋 Baca MD](docs/JURNAL_ILMIAH_SIAKAD.md) |
+| **Spesifikasi Modul (FSD)** | Dokumen Spesifikasi 10 Modul Fungsional & Matriks Hak Akses | [📄 Unduh PDF](docs/DOKUMENTASI_MODUL_FUNGSIONAL.pdf) | [📝 Unduh DOC](docs/DOKUMENTASI_MODUL_FUNGSIONAL.doc) | [📋 Baca MD](docs/MODUL_FUNGSIONAL.md) |
 
 ---
 
