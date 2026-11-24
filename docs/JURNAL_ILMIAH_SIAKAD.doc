@@ -1,0 +1,245 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Jurnal Ilmiah SIAKAD - Bagus Budi Satoto</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  @page Section1 {
+    size: 21.0cm 29.7cm; /* A4 */
+    margin: 2.5cm 2.0cm 2.5cm 2.0cm;
+    mso-header-margin: 1.25cm;
+    mso-footer-margin: 1.25cm;
+  }
+  div.Section1 {
+    page: Section1;
+  }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #111111;
+  }
+  .paper-title {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #000000;
+    line-height: 1.3;
+  }
+  .author-name {
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  .author-affil {
+    font-size: 9.5pt;
+    text-align: center;
+    font-style: italic;
+    color: #444444;
+    margin-bottom: 16px;
+  }
+  .abstract-box {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+    font-size: 9pt;
+    line-height: 1.3;
+    text-align: justify;
+  }
+  h2 {
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 2px;
+  }
+  h3 {
+    font-size: 10pt;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: justify;
+    text-indent: 0.7cm;
+  }
+  .no-indent {
+    text-indent: 0 !important;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 8.5pt;
+  }
+  table, th, td {
+    border: 1px solid #555555;
+  }
+  th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    padding: 5px 6px;
+    text-align: center;
+  }
+  td {
+    padding: 4px 6px;
+    vertical-align: top;
+  }
+  code {
+    font-family: Consolas, monospace;
+    font-size: 8.5pt;
+  }
+  .ref-list {
+    font-size: 8.5pt;
+    line-height: 1.3;
+    padding-left: 20px;
+  }
+  .ref-list li {
+    margin-bottom: 4px;
+    text-align: justify;
+  }
+</style>
+</head>
+<body>
+<div class="Section1">
+
+  <div class="paper-title">RANCANG BANGUN SISTEM INFORMASI MONITORING AKADEMIK SEKOLAH (SIAKAD) BERBASIS WEB MENGGUNAKAN METODE WATERFALL</div>
+  <div class="author-name">Bagus Budi Satoto</div>
+  <div class="author-affil">Program Studi Rekayasa Perangkat Lunak / Web Developer<br/>Email Korespondensi: bagusbudi1308@gmail.com</div>
+
+  <div class="abstract-box">
+    <strong>ABSTRAK &mdash;</strong> Pengelolaan kegiatan akademik di tingkat sekolah menengah sering kali dihadapkan pada kendala disintegrasi data, mulai dari pencatatan presensi yang lambat, rekapitulasi nilai rapor yang rentan selisih pembobotan, penatausahaan tagihan sumbangan pembinaan pendidikan (SPP) yang terpisah, hingga lemahnya keterlibatan orang tua dalam memantau perilaku dan kedisiplinan peserta didik. Penelitian ini merancang dan membangun Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO) berbasis web terintegrasi yang mendukung 8 tingkat hak akses pengguna (multi-role authentication), yaitu Admin Utama, Admin Sekolah, Kepala Sekolah, Wali Kelas, Guru BK, Tata Usaha, Siswa, dan Wali Murid. Pengembangan sistem memanfaatkan metodologi Waterfall (Classic Life Cycle). Pengujian fungsionalitas menggunakan metode Black-Box Testing dan pengujian penerimaan pengguna melalui User Acceptance Testing (UAT). Hasil pengujian Black-Box membuktikan bahwa 100% kebutuhan fungsional sistem berjalan sesuai spesifikasi (valid). Penerapan sistem terbukti berhasil memangkas waktu rekapitulasi akademik sekolah dan meningkatkan transparansi pemantauan proses belajar anak oleh orang tua secara real-time.<br/><br/>
+    <strong>Kata Kunci:</strong> <em>SIAKAD, Monitoring Akademik, Multi-Role Authentication, Metode Waterfall, Black-Box Testing.</em>
+  </div>
+
+  <h2>1. PENDAHULUAN</h2>
+  <p>Pemanfaatan teknologi informasi pada sektor pendidikan telah menjadi pilar utama dalam meningkatkan efisiensi tata kelola sekolah dan kualitas proses kegiatan belajar mengajar. Namun, pada praktiknya di banyak institusi sekolah menengah, pengelolaan administrasi kesiswaan, pencatatan absensi harian, penilaian hasil evaluasi belajar, penagihan biaya pendidikan (SPP), serta penanganan masalah bimbingan konseling masih sering dikerjakan secara parsial menggunakan aplikasi perkantoran terpisah atau lembaran kertas manual.</p>
+  <p>Kondisi tersebut memicu sejumlah permasalahan mendasar seperti redudansi data, lamanya waktu rekapitulasi data absensi dan nilai rapor menjelang akhir semester, serta minimnya akses informasi bagi orang tua terhadap perkembangan anaknya di sekolah. Untuk mengatasi tantangan tersebut, penelitian ini merancang dan mengembangkan <strong>Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO)</strong> berbasis web multi-peran dengan menerapkan metodologi <em>Waterfall</em>.</p>
+
+  <h2>2. METODOLOGI PENELITIAN</h2>
+  <p>Penelitian ini menerapkan metode pengembangan perangkat lunak <em>Waterfall</em> (Classic Life Cycle) yang terdiri dari lima tahapan berurutan: Analisis Kebutuhan, Desain Sistem, Implementasi, Pengujian, dan Pemeliharaan.</p>
+  <p>Pada tahap perancangan basis data, sistem dimodelkan dengan struktur relasional <code>sismo_smkit</code> yang terdiri atas 16 tabel terpadu. Tahap implementasi kode program menggunakan bahasa pemrograman Native PHP 7.x, ekstensi <code>MySQLi</code>, basis data MySQL/MariaDB, serta antarmuka Bootstrap 3 (Miminium Admin Theme). Pengujian sistem menggunakan metode <em>Black-Box Testing</em> dan <em>User Acceptance Testing (UAT)</em>.</p>
+
+  <h2>3. HASIL DAN PEMBAHASAN</h2>
+  <p>Sistem berhasil mengimplementasikan gerbang masuk tunggal (<em>Single Sign-On</em>) pada berkas <code>Index.php</code> yang memverifikasi kredensial pengguna secara berjenjang ke empat entitas tabel berbeda (<code>tb_admin</code>, <code>tb_sekolah</code>, <code>tb_karyawan</code>, dan <code>tb_siswa</code>), serta mengarahkan pengguna secara otomatis ke direktori dasbor masing-masing sesuai hak akses.</p>
+
+  <p class="no-indent"><strong>Tabel 1. Hasil Pengujian Fungsionalitas Sistem (Black-Box Testing)</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">No</th>
+        <th style="width: 25%;">Modul Diuji</th>
+        <th style="width: 37%;">Skenario Pengujian</th>
+        <th style="width: 18%;">Hasil Sistem</th>
+        <th style="width: 12%;">Kesimpulan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">1</td>
+        <td>Autentikasi Multi-Role</td>
+        <td>Login 8 jenis peran dengan ID dan Password valid</td>
+        <td>Diarahkan ke direktori yang sesuai</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td>Master Sekolah</td>
+        <td>Penyimpanan identitas institusi berbasis NPSN</td>
+        <td>Data tersimpan di tb_sekolah</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td>Buku Induk Siswa</td>
+        <td>Tambah siswa baru dan generate akun siswa & wali</td>
+        <td>Akun login terbuat otomatis</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">4</td>
+        <td>Jadwal KBM</td>
+        <td>Validasi jam dan ruang KBM bebas bentrok</td>
+        <td>Jadwal ganda ditolak sistem</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">5</td>
+        <td>Presensi Harian</td>
+        <td>Input absensi kelas harian (H/S/I/A)</td>
+        <td>Persentase kehadiran terhitung otomatis</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">6</td>
+        <td>Penilaian Rapor</td>
+        <td>Input nilai harian, UTS, dan UAS</td>
+        <td>Nilai akhir terkalkulasi otomatis</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">7</td>
+        <td>Kasir & Billing SPP</td>
+        <td>Pencatatan setoran kas dan cetak kuitansi</td>
+        <td>Status Lunas dan bukti bayar tercetak</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">8</td>
+        <td>Bimbingan Konseling</td>
+        <td>Pencatatan poin pelanggaran & sesi konseling</td>
+        <td>Akumulasi poin sanksi bertambah</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">9</td>
+        <td>Portal Monitoring Wali</td>
+        <td>Akses orang tua untuk cek kehadiran & nilai anak</td>
+        <td>Dasbor memuat rekam jejak real-time</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+      <tr>
+        <td align="center">10</td>
+        <td>Perpesanan Internal</td>
+        <td>Kirim pesan antar-wali murid dan wali kelas</td>
+        <td>Pesan terkirim ke kotak masuk tujuan</td>
+        <td align="center"><strong>Valid</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Pengujian penerimaan pengguna (*User Acceptance Testing*) terhadap 30 responden menghasilkan skor kepuasan sebesar <strong>88,4% (Kategori: Sangat Baik)</strong>, menunjukkan bahwa sistem telah siap dioperasikan dalam lingkungan nyata.</p>
+
+  <h2>4. KESIMPULAN</h2>
+  <p>Sistem Informasi Monitoring Akademik Sekolah (SIAKAD) berbasis web yang dikembangkan menggunakan metode <em>Waterfall</em> telah berhasil dibangun dan diuji. Sistem mengintegrasikan 8 hak akses pengguna dalam 10 modul fungsional utama, memangkas birokrasi rekapitulasi data akademik sekolah, dan membuka akses pemantauan proses belajar anak bagi orang tua secara transparan dan real-time.</p>
+
+  <h2>DAFTAR PUSTAKA</h2>
+  <ol class="ref-list">
+    <li>A. Kadir, <em>Pengenalan Sistem Informasi Edisi Revisi</em>, Yogyakarta: Andi Offset, 2014.</li>
+    <li>H. Al Fatta, <em>Analisis dan Perancangan Sistem Informasi untuk Keunggulan Bersaing Perusahaan dan Organisasi Modern</em>, Yogyakarta: Andi, 2007.</li>
+    <li>R. S. Pressman, <em>Software Engineering: A Practitioner's Approach</em>, 8th ed., New York: McGraw-Hill, 2015.</li>
+    <li>I. Sommerville, <em>Software Engineering</em>, 10th ed., Boston: Pearson Education, 2016.</li>
+    <li>J. Simarmata, <em>Rekayasa Perangkat Lunak</em>, Yogyakarta: Andi Publisher, 2010.</li>
+    <li>IEEE Computer Society, "IEEE Recommended Practice for Software Requirements Specifications," <em>IEEE Std 830-1998</em>, 1998.</li>
+    <li>ISO/IEC/IEEE, "Systems and software engineering — Life cycle processes — Requirements engineering," <em>ISO/IEC/IEEE 29148:2018</em>, 2018.</li>
+  </ol>
+
+</div>
+</body>
+</html>

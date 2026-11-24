@@ -1,0 +1,428 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Spesifikasi Modul Fungsional SIAKAD</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  @page Section1 {
+    size: 21.0cm 29.7cm; /* A4 */
+    margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+    mso-header-margin: 1.25cm;
+    mso-footer-margin: 1.25cm;
+    mso-paper-source: 0;
+  }
+  div.Section1 {
+    page: Section1;
+  }
+  body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #2b2b2b;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 14pt;
+    color: #2b6cb0;
+    border-bottom: 2px solid #2b6cb0;
+    padding-bottom: 4px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 12pt;
+    color: #2d3748;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    font-size: 10pt;
+  }
+  table, th, td {
+    border: 1px solid #cbd5e0;
+  }
+  th {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    font-weight: bold;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  td {
+    padding: 7px 10px;
+    vertical-align: top;
+  }
+  .info-table th {
+    background-color: #f7fafc;
+    width: 25%;
+    color: #4a5568;
+  }
+  .info-table td {
+    width: 75%;
+  }
+  .badge {
+    background-color: #edf2f7;
+    border: 1px solid #cbd5e0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  .header-box {
+    text-align: center;
+    border-bottom: 3px double #a0aec0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  .author-box {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3182ce;
+    padding: 12px 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  ul {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+  }
+  li {
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="Section1">
+
+  <div class="header-box">
+    <h1>DOKUMEN SPESIFIKASI MODUL FUNGSIONAL</h1>
+    <h3 style="color: #4a5568; margin-top: 0;">Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO)</h3>
+    <p style="text-align: center; color: #718096; font-size: 10pt; margin: 0;">Dokumen Teknis Rekayasa Perangkat Lunak (Functional Specification Document)</p>
+  </div>
+
+  <table class="info-table">
+    <tr>
+      <th>Nama Aplikasi</th>
+      <td><strong>Sistem Informasi Monitoring Akademik Sekolah (SIAKAD)</strong></td>
+    </tr>
+    <tr>
+      <th>Penyusun / Pengembang</th>
+      <td><strong>Bagus Budi Satoto</strong></td>
+    </tr>
+    <tr>
+      <th>Role</th>
+      <td><strong>Web Developer</strong></td>
+    </tr>
+    <tr>
+      <th>Teknologi Basis</th>
+      <td>Native PHP 7.x, MySQLi, Bootstrap 3 (Miminium Dashboard), jQuery</td>
+    </tr>
+    <tr>
+      <th>Versi Dokumen</th>
+      <td>1.0 (Dokumen Resmi)</td>
+    </tr>
+  </table>
+
+  <div class="author-box">
+    <strong>Catatan Pengembang:</strong><br/>
+    Dokumen ini dirancang sebagai acuan arsitektur sistem dan pemetaan modul fungsional dalam pengembangan dan penerapan <strong>Sistem Informasi Monitoring Akademik Sekolah (SIAKAD)</strong>. Seluruh hak cipta kode program dan arsitektur sistem dikembangkan oleh <strong>Bagus Budi Satoto (Web Developer)</strong>.
+  </div>
+
+  <h2>1. Pendahuluan & Latar Belakang</h2>
+  <p>
+    Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO) merupakan platform komprehensif yang dirancang untuk mengatasi kompleksitas tata kelola administrasi akademik, evaluasi nilai siswa, presensi harian, administrasi penagihan dan pembayaran sekolah (SPP), serta pemantauan bimbingan konseling dan kedisiplinan secara terpadu.
+  </p>
+  <p>
+    Tujuan penyusunan dokumen modul fungsional ini adalah untuk memberikan batasan yang terdefinisi secara jelas mengenai masukan (<em>input</em>), logika proses (<em>processing logic</em>), keluaran (<em>output</em>), dan hak otorisasi (<em>role-based access</em>) pada masing-masing domain bisnis sekolah.
+  </p>
+
+  <h2>2. Matriks Hak Akses Modul Fungsional (Role-Based Access)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%; text-align: center;">Kode</th>
+        <th style="width: 32%;">Nama Modul Fungsional</th>
+        <th style="width: 14%;">Admin Sekolah</th>
+        <th style="width: 11%;">Wali Kelas</th>
+        <th style="width: 11%;">Guru BK</th>
+        <th style="width: 11%;">Tata Usaha</th>
+        <th style="width: 11%;">Wali Murid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center"><strong>MOD-01</strong></td>
+        <td>Manajemen Master Data & Kelembagaan</td>
+        <td>Penuh (CRUD)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Read-Only</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-02</strong></td>
+        <td>Buku Induk Kesiswaan & Rombel</td>
+        <td>Penuh (CRUD)</td>
+        <td>Read-Only</td>
+        <td>Read-Only</td>
+        <td>Penuh (CRUD)</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-03</strong></td>
+        <td>Kurikulum & Penjadwalan KBM</td>
+        <td>Penuh (CRUD)</td>
+        <td>Read-Only</td>
+        <td>-</td>
+        <td>Read-Only</td>
+        <td>Read-Only</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-04</strong></td>
+        <td>Presensi & Rekap Kehadiran</td>
+        <td>Penuh (CRUD)</td>
+        <td>Penuh (Kelas)</td>
+        <td>Read-Only</td>
+        <td>Read-Only</td>
+        <td>Read-Only</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-05</strong></td>
+        <td>Penilaian Akademik (E-Rapor)</td>
+        <td>Penuh (CRUD)</td>
+        <td>Penuh (Kelas)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Read-Only</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-06</strong></td>
+        <td>Billing Tagihan & Pembayaran SPP</td>
+        <td>Penuh (CRUD)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Penuh (Kasir)</td>
+        <td>Read-Only</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-07</strong></td>
+        <td>Bimbingan Konseling & Poin Sanksi</td>
+        <td>Penuh (CRUD)</td>
+        <td>Read-Only</td>
+        <td>Penuh (BK)</td>
+        <td>-</td>
+        <td>Read-Only</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-08</strong></td>
+        <td>Portal Mandiri Siswa</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-09</strong></td>
+        <td>Portal Monitoring Wali Murid</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Penuh (Anak)</td>
+      </tr>
+      <tr>
+        <td align="center"><strong>MOD-10</strong></td>
+        <td>Komunikasi & Pesan Internal</td>
+        <td>Akses Penuh</td>
+        <td>Akses Penuh</td>
+        <td>Akses Penuh</td>
+        <td>Akses Penuh</td>
+        <td>Akses Penuh</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Rincian Spesifikasi Modul Fungsional</h2>
+
+  <h3>3.1 MOD-01: Modul Manajemen Master Data & Kelembagaan</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Mengelola struktur organisasi sekolah, data identitas legal (NPSN), profil institusi, dewan guru, karyawan, kompetensi jurusan, dan alokasi ruang kelas.</li>
+    <li><strong>Input:</strong> NPSN, nama sekolah, kontak, berkas SK guru/pegawai, nama jurusan, kode kelas.</li>
+    <li><strong>Proses:</strong> Validasi duplikasi NPSN dan NIP, relasi data pengajar dengan mata pelajaran.</li>
+    <li><strong>Output:</strong> Direktori kepegawaian, struktur kelembagaan sekolah, master referensi sistem.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_sekolah</code>, <code>tb_karyawan</code>, <code>tb_jurusan</code>, <code>tb_kelas</code>.</li>
+  </ul>
+
+  <h3>3.2 MOD-02: Modul Buku Induk Kesiswaan & Manajemen Rombel</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Pengarsipan buku induk siswa terpadu sejak pendaftaran hingga penempatan kelas/rombel.</li>
+    <li><strong>Input:</strong> NIPD, NISN, biodata siswa, alamat, data kontak orang tua/wali, foto siswa.</li>
+    <li><strong>Proses:</strong> Pembuatan akun akses portal siswa dan akun login wali murid secara otomatis.</li>
+    <li><strong>Output:</strong> Buku induk digital, kartu pelajar, daftar presensi siswa per rombongan belajar.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_siswa</code>, <code>tb_kelas</code>.</li>
+  </ul>
+
+  <h3>3.3 MOD-03: Modul Kurikulum, Mata Pelajaran & Penjadwalan KBM</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Mengatur pemetaan mata pelajaran kurikuler dan menyusun jadwal kegiatan belajar mengajar bebas bentrok.</li>
+    <li><strong>Input:</strong> Nama mata pelajaran, tingkatan kelas, guru pengampu, hari, jam mulai, jam selesai.</li>
+    <li><strong>Proses:</strong> Algoritma verifikasi ketersediaan guru dan ruang kelas untuk mencegah jadwal ganda.</li>
+    <li><strong>Output:</strong> Jadwal pelajaran kelas harian dan jadwal tatap muka dewan guru.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_pelajaran</code>, <code>tb_jadwal</code>, <code>tb_karyawan</code>.</li>
+  </ul>
+
+  <h3>3.4 MOD-04: Modul Presensi & Rekapitulasi Kehadiran Siswa</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Pencatatan presensi siswa harian secara berkala dan rekapitulasi kehadiran per semester.</li>
+    <li><strong>Input:</strong> Tanggal presensi, status (Hadir, Sakit, Izin, Alpa), keterangan bukti surat izin/sakit.</li>
+    <li><strong>Proses:</strong> Akumulasi persentase kehadiran otomatis yang terintegrasi dengan portal orang tua.</li>
+    <li><strong>Output:</strong> Laporan bulanan absensi kelas dan peringatan dini bagi siswa dengan alpa tinggi.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_absensi</code>, <code>tb_siswa</code>, <code>tb_kelas</code>.</li>
+  </ul>
+
+  <h3>3.5 MOD-05: Modul Penilaian Akademik & Evaluasi Belajar (E-Rapor)</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Rekapitulasi nilai capaian belajar siswa meliputi penilaian harian, UTS, dan UAS.</li>
+    <li><strong>Input:</strong> Nilai tugas, nilai UTS, nilai UAS per mata pelajaran, catatan kompetensi wali kelas.</li>
+    <li><strong>Proses:</strong> Perhitungan nilai akhir otomatis berdasarkan pembobotan persentase kurikulum.</li>
+    <li><strong>Output:</strong> Lembar hasil belajar semester, transkrip nilai, dan peringkat kelas.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_nilai_akademik</code>, <code>tb_pelajaran</code>, <code>tb_siswa</code>.</li>
+  </ul>
+
+  <h3>3.6 MOD-06: Modul Billing Tagihan & Pembayaran Keuangan SPP</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Pengelolaan pos tagihan sekolah dan pencatatan transaksi kas pembayaran pendidikan.</li>
+    <li><strong>Input:</strong> Nama pos tagihan, tarif, jatuh tempo, nomor transaksi bayar, jumlah bayar.</li>
+    <li><strong>Proses:</strong> Pembaruan otomatis status tagihan (Lunas / Kurang / Belum Bayar) dan buku kas masuk.</li>
+    <li><strong>Output:</strong> Kwitansi pembayaran resmi, kartu SPP digital, rekapitulasi tunggakan siswa.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_tagihan</code>, <code>tb_pembayaran</code>, <code>tb_siswa</code>.</li>
+  </ul>
+
+  <h3>3.7 MOD-07: Modul Bimbingan Konseling & Poin Kedisiplinan Siswa</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Instrumen pembinaan karakter siswa melalui sistem poin pelanggaran dan sesi konseling.</li>
+    <li><strong>Input:</strong> Jenis pelanggaran tata tertib, bobot poin sanksi, tanggal konseling, catatan pembinaan.</li>
+    <li><strong>Proses:</strong> Akumulasi otomatis poin sanksi; jika melampaui batas ambang memicu surat panggilan orang tua.</li>
+    <li><strong>Output:</strong> Lembar riwayat konseling dan buku rekam jejak kedisiplinan siswa.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_konseling</code>, <code>tb_pelanggaran</code>, <code>tb_siswa</code>.</li>
+  </ul>
+
+  <h3>3.8 MOD-08: Modul Portal Siswa Mandiri</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Akses mandiri peserta didik ke data pribadinya untuk memacu kemandirian belajar.</li>
+    <li><strong>Fitur:</strong> Cek jadwal pelajaran mingguan, monitoring riwayat absensi, cek nilai akademik, cek tagihan SPP.</li>
+    <li><strong>Autentikasi:</strong> NIPD dan Password Siswa.</li>
+  </ul>
+
+  <h3>3.9 MOD-09: Modul Monitoring Wali Murid (Parental Portal)</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Akses transparan orang tua untuk memantau kehadiran, nilai, tagihan, dan disiplin anak secara berkala.</li>
+    <li><strong>Fitur:</strong> Monitoring real-time kehadiran anak, histori pembayaran sekolah, dan catatan konseling/pelanggaran anak.</li>
+    <li><strong>Autentikasi:</strong> NIPD Siswa dan Password Khusus Wali Murid.</li>
+  </ul>
+
+  <h3>3.10 MOD-10: Modul Komunikasi & Kotak Pesan Internal</h3>
+  <ul>
+    <li><strong>Deskripsi:</strong> Sarana komunikasi terpadu antar pengguna untuk memudahkan koordinasi sekolah dan wali murid.</li>
+    <li><strong>Fitur:</strong> Pengiriman pesan personal, kotak masuk (inbox), penanda status terbaca, dan fitur chat interaktif.</li>
+    <li><strong>Tabel Terkait:</strong> <code>tb_pesan</code>.</li>
+  </ul>
+
+  <h2>4. Arsitektur Infrastruktur & Stack Teknis</h2>
+  <p>
+    SIAKAD dirancang dengan teknologi web yang ringan dan efisien, sehingga fleksibel diterapkan baik pada jaringan intranet sekolah tanpa internet maupun pada cloud server online 24 jam.
+  </p>
+
+  <h3>4.1 Komponen Perangkat Lunak (Software Stack)</h3>
+  <ul>
+    <li><strong>Backend Runtime:</strong> Native PHP 7.0 - 7.4 (Kompatibel PHP 5.6+)</li>
+    <li><strong>Ekstensi PHP Wajib:</strong> <code>mysqli</code>, <code>session</code>, <code>fileinfo</code>, <code>gd</code>, <code>json</code>, <code>mbstring</code></li>
+    <li><strong>Basis Data:</strong> MySQL 5.7+ / MariaDB 10.3+ (Engine: InnoDB)</li>
+    <li><strong>Web Server Engine:</strong> Apache 2.4+ (XAMPP / Laragon / cPanel) dengan <code>mod_rewrite</code></li>
+    <li><strong>Frontend & UI:</strong> Bootstrap 3.3.7 (Miminium Dashboard Theme), jQuery, FontAwesome, Animate.css</li>
+  </ul>
+
+  <h3>4.2 Kebutuhan Perangkat Keras Server (Hardware Requirements)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Komponen</th>
+        <th style="width: 35%;">Spesifikasi Minimum (&le; 500 Siswa)</th>
+        <th style="width: 40%;">Rekomendasi Ideal (&gt; 1.000 Siswa)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Processor / CPU</strong></td>
+        <td>Dual-Core 2.0 GHz / 1 vCPU Cloud</td>
+        <td>Quad-Core 2.5 GHz / 2-4 vCPU</td>
+      </tr>
+      <tr>
+        <td><strong>RAM (Memory)</strong></td>
+        <td>2 GB DDR3/DDR4</td>
+        <td>4 GB - 8 GB DDR4</td>
+      </tr>
+      <tr>
+        <td><strong>Penyimpanan (Storage)</strong></td>
+        <td>20 GB HDD/SSD</td>
+        <td>50 GB - 100 GB SSD NVMe</td>
+      </tr>
+      <tr>
+        <td><strong>Jaringan (Network)</strong></td>
+        <td>LAN 100 Mbps / Internet 5 Mbps</td>
+        <td>LAN Gigabit 1000 Mbps / Internet 20-50 Mbps</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 Model Penerapan Sistem (Deployment Options)</h3>
+  <ul>
+    <li><strong>Model On-Premise (Intranet Sekolah):</strong> Sistem diinstal pada server lokal di sekolah. Seluruh guru, tata usaha, dan siswa mengakses via WiFi/LAN sekolah secara gratis tanpa memerlukan kuota internet.</li>
+    <li><strong>Model Cloud Hosting (Online 24/7):</strong> Sistem diunggah ke Shared Hosting cPanel atau Cloud VPS sehingga orang tua dapat mengakses rapor, jadwal, dan presensi anak secara langsung dari rumah melalui smartphone.</li>
+  </ul>
+
+  <h2>5. Lembar Pengesahan Dokumen</h2>
+  <table style="border: none; margin-top: 40px;">
+    <tr style="border: none;">
+      <td style="border: none; width: 50%; text-align: center;">
+        Disusun oleh Pengembang,<br/><br/><br/><br/><br/>
+        <strong><u>Bagus Budi Satoto</u></strong><br/>
+        <em>Role: Web Developer</em>
+      </td>
+      <td style="border: none; width: 50%; text-align: center;">
+        Mengetahui / Disetujui,<br/><br/><br/><br/><br/>
+        <strong><u>Tim Manajemen Proyek SIAKAD</u></strong><br/>
+        <em>Lead System Analyst</em>
+      </td>
+    </tr>
+  </table>
+
+</div>
+</body>
+</html>

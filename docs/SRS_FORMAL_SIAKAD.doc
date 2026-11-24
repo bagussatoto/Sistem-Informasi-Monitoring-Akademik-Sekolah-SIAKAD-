@@ -1,0 +1,279 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Software Requirements Specification (SRS) SIAKAD</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  @page Section1 {
+    size: 21.0cm 29.7cm; /* A4 */
+    margin: 2.0cm 2.0cm 2.0cm 2.0cm;
+    mso-header-margin: 1.25cm;
+    mso-footer-margin: 1.25cm;
+  }
+  div.Section1 {
+    page: Section1;
+  }
+  body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #2b2b2b;
+  }
+  h1 {
+    font-size: 18pt;
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 13pt;
+    color: #2b6cb0;
+    border-bottom: 1.5px solid #2b6cb0;
+    padding-bottom: 3px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  h3 {
+    font-size: 11pt;
+    color: #2d3748;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    font-size: 9pt;
+  }
+  table, th, td {
+    border: 1px solid #cbd5e0;
+  }
+  th {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    font-weight: bold;
+    padding: 6px 8px;
+    text-align: left;
+  }
+  td {
+    padding: 5px 8px;
+    vertical-align: top;
+  }
+  .info-table th {
+    background-color: #f7fafc;
+    width: 25%;
+    color: #4a5568;
+  }
+  .info-table td {
+    width: 75%;
+  }
+  .author-box {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3182ce;
+    padding: 10px 12px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    font-size: 10pt;
+  }
+  ul {
+    margin-top: 3px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+  code {
+    background-color: #edf2f7;
+    padding: 1px 4px;
+    font-family: Consolas, monospace;
+    font-size: 9pt;
+    color: #805ad5;
+  }
+</style>
+</head>
+<body>
+<div class="Section1">
+
+  <div style="text-align: center; border-bottom: 3px double #a0aec0; padding-bottom: 12px; margin-bottom: 18px;">
+    <h1>SOFTWARE REQUIREMENTS SPECIFICATION (SRS)</h1>
+    <h3 style="color: #4a5568; margin-top: 0;">Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO)</h3>
+    <p style="text-align: center; color: #718096; font-size: 9.5pt; margin: 0;">Disusun Berdasarkan Standar Formal IEEE Std 830-1998 / ISO/IEC/IEEE 29148</p>
+  </div>
+
+  <table class="info-table">
+    <tr>
+      <th>Nomor Dokumen</th>
+      <td><strong>SRS-SIAKAD-2026-V1.0</strong></td>
+    </tr>
+    <tr>
+      <th>Nama Perangkat Lunak</th>
+      <td><strong>Sistem Informasi Monitoring Akademik Sekolah (SIAKAD)</strong></td>
+    </tr>
+    <tr>
+      <th>Penyusun Utama / Author</th>
+      <td><strong>Bagus Budi Satoto</strong></td>
+    </tr>
+    <tr>
+      <th>Role / Jabatan</th>
+      <td><strong>Web Developer / Lead Software Engineer</strong></td>
+    </tr>
+    <tr>
+      <th>Status Dokumen</th>
+      <td>Dokumen Resmi Spesifikasi Kebutuhan Perangkat Lunak</td>
+    </tr>
+  </table>
+
+  <div class="author-box">
+    <strong>Author Credit:</strong> Dokumen formal SRS ini dirancang dan dikembangkan oleh <strong>Bagus Budi Satoto (Web Developer)</strong> sebagai acuan rekayasa perangkat lunak, verifikasi kualitas sistem, dan standarisasi fungsionalitas aplikasi.
+  </div>
+
+  <h2>1. Pendahuluan</h2>
+  <p><strong>1.1 Tujuan:</strong> Dokumen SRS ini memuat spesifikasi formal kebutuhan fungsional dan non-fungsional perangkat lunak Sistem Informasi Monitoring Akademik Sekolah (SIAKAD / SISMO). Berfungsi sebagai pedoman teknis perancangan, implementasi, dan pengujian sistem.</p>
+  <p><strong>1.2 Cakupan Produk:</strong> SIAKAD mencakup pengelolaan master data kelembagaan, administrasi siswa, penjadwalan pelajaran bebas bentrok, pencatatan presensi real-time, evaluasi nilai rapor, tagihan keuangan SPP, serta bimbingan konseling dan pemantauan orang tua.</p>
+
+  <h2>2. Deskripsi Umum Sistem (Overall Description)</h2>
+  <p>Sistem dibangun dengan arsitektur <em>Client-Server</em> multi-peran dengan 8 tingkatan hak akses pengguna (Admin Utama, Admin Sekolah, Kepala Sekolah, Wali Kelas, Guru BK, Tata Usaha, Siswa, dan Wali Murid).</p>
+
+  <h2>3. Kebutuhan Fungsional Formal (Functional Requirements - FR)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Kode FR</th>
+        <th style="width: 26%;">Nama Kebutuhan</th>
+        <th style="width: 42%;">Deskripsi Spesifikasi Fungsional</th>
+        <th style="width: 18%;">Tabel Terkait</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>FR-AUTH-001</strong></td>
+        <td>Login Terpusat</td>
+        <td>Menyediakan form login satu pintu dengan verifikasi bertingkat ke tabel admin, sekolah, karyawan, siswa/wali.</td>
+        <td><code>tb_admin</code>, <code>tb_sekolah</code>, <code>tb_karyawan</code>, <code>tb_siswa</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-MST-001</strong></td>
+        <td>Master Sekolah</td>
+        <td>Mengelola identitas legal sekolah (NPSN), profil institusi, dan data kepegawaian.</td>
+        <td><code>tb_sekolah</code>, <code>tb_karyawan</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-SIS-001</strong></td>
+        <td>Buku Induk Siswa</td>
+        <td>Registrasi data induk siswa (NIPD/NISN) dan otomasi pembuatan akun akses siswa serta wali murid.</td>
+        <td><code>tb_siswa</code>, <code>tb_kelas</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-JDW-001</strong></td>
+        <td>Jadwal KBM Bebas Bentrok</td>
+        <td>Penyusunan jadwal mengajar mingguan dengan validasi pencegahan jadwal ganda guru dan ruang belajar.</td>
+        <td><code>tb_pelajaran</code>, <code>tb_jadwal</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-ABS-001</strong></td>
+        <td>Presensi Harian Siswa</td>
+        <td>Pencatatan presensi (H/S/I/A) dan kalkulasi persentase kehadiran bulanan/semester otomatis.</td>
+        <td><code>tb_absensi</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-NIL-001</strong></td>
+        <td>Penilaian Rapor Siswa</td>
+        <td>Penginputan nilai harian, UTS, UAS, dan komputasi otomatis nilai akhir evaluasi capaian belajar.</td>
+        <td><code>tb_nilai_akademik</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-KEU-001</strong></td>
+        <td>Billing & Kasir SPP</td>
+        <td>Pembuatan pos tagihan rutin/insidental, verifikasi transaksi pembayaran kas, dan cetak kuitansi.</td>
+        <td><code>tb_tagihan</code>, <code>tb_pembayaran</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-BK-001</strong></td>
+        <td>Konseling & Poin Sanksi</td>
+        <td>Pencatatan pelanggaran tata tertib, akumulasi poin sanksi, dan dokumentasi sesi bimbingan konseling.</td>
+        <td><code>tb_konseling</code>, <code>tb_pelanggaran</code></td>
+      </tr>
+      <tr>
+        <td><strong>FR-PRT-001</strong></td>
+        <td>Portal Mandiri Siswa & Wali</td>
+        <td>Dasbor transparan pemantauan jadwal, absensi harian, nilai rapor, dan histori tagihan secara real-time.</td>
+        <td>Seluruh Tabel Transaksi</td>
+      </tr>
+      <tr>
+        <td><strong>FR-MSG-001</strong></td>
+        <td>Komunikasi Pesan Internal</td>
+        <td>Layanan pesan masuk/keluar dan fitur chat interaktif antar-stakeholder sekolah.</td>
+        <td><code>tb_pesan</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Kebutuhan Non-Fungsional (Non-Functional Requirements - NFR)</h2>
+  <ul>
+    <li><strong>NFR-PERF (Kinerja):</strong> Page load time rata-rata &lt; 2,0 detik pada jaringan LAN lokal; mendukung &ge; 100 concurrent users.</li>
+    <li><strong>NFR-SEC (Keamanan):</strong> Enkripsi sandi satu arah MD5, validasi variabel <code>$_SESSION</code> di seluruh halaman, dan isolasi data berbasis <code>npsn</code>.</li>
+    <li><strong>NFR-REL (Keandalan):</strong> Ketersediaan sistem ditargetkan minimal 99,0% pada jam operasional sekolah.</li>
+    <li><strong>NFR-USE (Usability):</strong> Antarmuka dashboard responsif berbasis Bootstrap 3 dengan navigasi sidebar yang konsisten.</li>
+  </ul>
+
+  <h2>5. Arsitektur Infrastruktur & Kebutuhan Server</h2>
+  <table style="font-size: 9pt;">
+    <tr>
+      <th style="width: 25%;">Komponen</th>
+      <th style="width: 35%;">Spesifikasi Minimum</th>
+      <th style="width: 40%;">Rekomendasi Ideal</th>
+    </tr>
+    <tr>
+      <td><strong>Processor</strong></td>
+      <td>Dual-Core 2.0 GHz / 1 vCPU</td>
+      <td>Quad-Core 2.5 GHz / 2-4 vCPU</td>
+    </tr>
+    <tr>
+      <td><strong>Memory (RAM)</strong></td>
+      <td>2 GB DDR3/DDR4</td>
+      <td>4 GB - 8 GB DDR4</td>
+    </tr>
+    <tr>
+      <td><strong>Software Stack</strong></td>
+      <td>PHP 7.x, MySQL 5.7+ / MariaDB 10.3+</td>
+      <td>Apache 2.4+ (mod_rewrite, mysqli, session, gd)</td>
+    </tr>
+  </table>
+
+  <h2>6. Lembar Pengesahan Formal</h2>
+  <table style="border: none; margin-top: 30px;">
+    <tr style="border: none;">
+      <td style="border: none; width: 50%; text-align: center;">
+        Disusun Oleh Pengembang,<br/><br/><br/><br/><br/>
+        <strong><u>Bagus Budi Satoto</u></strong><br/>
+        <em>Lead Web Developer / Software Engineer</em>
+      </td>
+      <td style="border: none; width: 50%; text-align: center;">
+        Disetujui Oleh,<br/><br/><br/><br/><br/>
+        <strong><u>Tim Pengarah Sistem Informasi Sekolah</u></strong><br/>
+        <em>Representative Stakeholders</em>
+      </td>
+    </tr>
+  </table>
+
+</div>
+</body>
+</html>
