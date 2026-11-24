@@ -69,6 +69,7 @@ Tersedia paket dokumentasi teknis dan publikasi ilmiah lengkap di direktori `doc
 | **SRS Formal** | *Software Requirements Specification* (Standar IEEE Std 830 / ISO 29148) | [📄 Unduh PDF](docs/SRS_FORMAL_SIAKAD.pdf) | [📝 Unduh DOC](docs/SRS_FORMAL_SIAKAD.doc) | [📋 Baca MD](docs/SRS_FORMAL_SIAKAD.md) |
 | **Jurnal Ilmiah** | Artikel Ilmiah: *Rancang Bangun SIAKAD Menggunakan Metode Waterfall* | [📄 Unduh PDF](docs/JURNAL_ILMIAH_SIAKAD.pdf) | [📝 Unduh DOC](docs/JURNAL_ILMIAH_SIAKAD.doc) | [📋 Baca MD](docs/JURNAL_ILMIAH_SIAKAD.md) |
 | **Spesifikasi Modul (FSD)** | Dokumen Spesifikasi 10 Modul Fungsional & Matriks Hak Akses | [📄 Unduh PDF](docs/DOKUMENTASI_MODUL_FUNGSIONAL.pdf) | [📝 Unduh DOC](docs/DOKUMENTASI_MODUL_FUNGSIONAL.doc) | [📋 Baca MD](docs/MODUL_FUNGSIONAL.md) |
+| **Kamus Data & DDL** | Spesifikasi Lengkap DDL, Tipe Data, PK/FK Constraints 16 Tabel | - | - | [📋 Baca MD](docs/DATABASE_DDL.md) |
 
 ---
 
@@ -251,14 +252,29 @@ cd C:/xampp/htdocs/
 git clone <url-repository> siakad
 ```
 
-### 3. Konfigurasi Basis Data
-1. Buka browser dan buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
+### 3. Konfigurasi Basis Data & Eksekusi DDL
+
+Pilih salah satu metode pembuatan basis data di bawah ini:
+
+#### Metode A: Melalui Command Line Interface (CLI - Cepat)
+```bash
+# Buat database jika belum ada
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS sismo_smkit;"
+
+# Impor struktur DDL dan data awal
+mysql -u root -p sismo_smkit < database/sismo_smkit.sql
+```
+
+#### Metode B: Melalui antarmuka phpMyAdmin
+1. Buka browser dan arahkan ke **phpMyAdmin** (`http://localhost/phpmyadmin`).
 2. Buat basis data baru bernama `sismo_smkit`.
 3. Buka tab **Import** dan pilih berkas SQL dari direktori:
    ```
    siakad/database/sismo_smkit.sql
    ```
 4. Klik tombol **Go / Import** hingga seluruh tabel berhasil dimuat.
+
+> 📖 **Kamus Data & Spesifikasi DDL:** Rincian struktur kolom, tipe data, serta constraints kunci tamu (*Foreign Keys*) ke-16 tabel dapat dilihat di [docs/DATABASE_DDL.md](docs/DATABASE_DDL.md).
 
 ### 4. Konfigurasi Koneksi PHP
 Periksa berkas konfigurasi koneksi di:
