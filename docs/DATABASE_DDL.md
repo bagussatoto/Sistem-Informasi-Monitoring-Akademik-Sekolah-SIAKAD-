@@ -312,3 +312,34 @@ ALTER TABLE `tb_konseling`
   ADD CONSTRAINT `FK_tb_konseling_tb_pelanggaran` FOREIGN KEY (`kode_pelanggaran`) REFERENCES `tb_pelanggaran` (`kode_pelanggaran`),
   ADD CONSTRAINT `FK_tb_konseling_tb_sekolah` FOREIGN KEY (`npsn`) REFERENCES `tb_sekolah` (`npsn`);
 ```
+
+---
+
+## 4. Otomasi Basis Data: Stored Functions & Triggers
+
+Untuk menjamin integritas data tingkat tinggi (*Enterprise Grade Data Integrity*), sistem dilengkapi berkas otomasi stored routines pada:  
+👉 `database/triggers_and_functions.sql`
+
+### 4.1 Cara Eksekusi / Instalasi Functions & Triggers
+```bash
+mysql -u root -p sismo_smkit < database/triggers_and_functions.sql
+```
+
+### 4.2 Daftar Stored Functions
+1. **`fn_konversi_predikat(nilai)`**: Mengonversi nilai angka akumulasi menjadi huruf predikat mutu (`A` $\ge 85$, `B` $\ge 75$, `C` $\ge 60$, `D` $\ge 50$, `E` $< 50$).
+2. **`fn_status_kelulusan(nilai, kkm)`**: Menentukan status ketuntasan belajar siswa (`Tuntas` / `Remedial`) berdasarkan KKM (standar: 75).
+3. **`fn_total_poin_pelanggaran(nipd)`**: Mengagregasi total akumulasi poin pelanggaran siswa dari tabel `tb_konseling` dan `tb_pelanggaran`.
+4. **`fn_hitung_kehadiran(nipd, status)`**: Menghitung jumlah presensi siswa untuk status tertentu (`H` = Hadir, `S` = Sakit, `I` = Izin, `A` = Alpa).
+5. **`fn_persentase_kehadiran(nipd)`**: Menghitung persentase kehadiran siswa secara otomatis:
+   $$\text{Persentase} = \left(\frac{\text{Total Hadir}}{\text{Total Pertemuan}}\right) \times 100\%$$
+
+### 4.3 Daftar Triggers
+1. **`trg_hitung_nilai_akhir_insert` (`BEFORE INSERT ON tb_nilai_akademik`)**:
+   Otomatis menghitung kolom `nilai_akhir` saat nilai tugas, UTS, dan UAS diinput:
+   $$\text{Nilai Akhir} = (30\% \times \text{Tugas}) + (30\% \times \text{UTS}) + (40\% \times \text{UAS})$$
+2. **`trg_hitung_nilai_akhir_update` (`BEFORE UPDATE ON tb_nilai_akademik`)**:
+   Memperbarui secara otomatis kolom `nilai_akhir` apabila terdapat perubahan skor tugas, UTS, atau UAS.
+3. **`trg_update_status_tagihan_insert` (`AFTER INSERT ON tb_pembayaran`)**:
+   Mengecek total setoran kas siswa; jika total setoran $\ge$ `nominal_tagihan`, status keterangan di `tb_tagihan` otomatis diubah menjadi `'Lunas'`.
+4. **`trg_update_status_tagihan_delete` (`AFTER DELETE ON tb_pembayaran`)**:
+   Menghitung ulang status keterpenuhan pembayaran di `tb_tagihan` apabila suatu transaksi kasir dibatalkan/dihapus.

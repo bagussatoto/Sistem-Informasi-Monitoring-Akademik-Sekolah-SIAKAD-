@@ -263,6 +263,9 @@ mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS sismo_smkit;"
 
 # Impor struktur DDL dan data awal
 mysql -u root -p sismo_smkit < database/sismo_smkit.sql
+
+# (Opsional) Pasang Stored Functions & Triggers untuk otomasi hitung nilai akhir & status SPP
+mysql -u root -p sismo_smkit < database/triggers_and_functions.sql
 ```
 
 #### Metode B: Melalui antarmuka phpMyAdmin
