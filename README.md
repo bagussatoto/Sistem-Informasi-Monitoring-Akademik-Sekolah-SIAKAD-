@@ -97,10 +97,12 @@ Sistem dirancang modular untuk mengakomodasi seluruh proses bisnis institusi pen
 ### 5. Modul Penilaian Akademik & Transparansi Nilai
 - **Penginputan Komponen Nilai**: Pencatatan nilai tugas harian, Ujian Tengah Semester (UTS), dan Ujian Akhir Semester (UAS).
 - **Rekap Hasil Belajar**: Kalkulasi otomatis nilai akhir mata pelajaran sebagai rujukan laporan capaian belajar siswa.
+- **Cetak Lembar Rapor Digital (E-Rapor)**: Format standar cetak/PDF A4 rapi dan resmi lengkap dengan kop sekolah, identitas siswa, tabel capaian nilai & bobot, rekap kehadiran (S/I/A), catatan perkembangan wali kelas, serta 3 kolom pengesahan (Wali Murid, Wali Kelas, dan Kepala Sekolah).
 
 ### 6. Modul Keuangan, Tagihan & Pembayaran (Billing SPP)
 - **Pengaturan Pos Tagihan**: Pembuatan tarif tagihan rutin (SPP bulanan) dan tagihan insidental pendidikan.
-- **Pencatatan Transaksi Pembayaran**: Verifikasi pembayaran siswa, status pelunasan (*Lunas / Menunggak*), dan riwayat kwitansi.
+- **Pencatatan Transaksi Pembayaran**: Verifikasi pembayaran siswa, status pelunasan (*Lunas / Menunggak*), dan riwayat pembayaran.
+- **Cetak Kuitansi Pembayaran (Kuitansi Kas Masuk)**: Bukti transaksi pembayaran resmi format cetak/PDF A5 landscape dengan nomor kuitansi otomatis, terbilang rupiah dinamis, rincian pembayaran, serta kolom tanda tangan kasir Tata Usaha.
 
 ### 7. Modul Bimbingan Konseling (BK) & Kedisiplinan Siswa
 - **Buku Pelanggaran & Poin Sanksi**: Pencatatan jenis pelanggaran tata tertib beserta akumulasi poin sanksi siswa.
@@ -121,6 +123,7 @@ Sistem dirancang modular untuk mengakomodasi seluruh proses bisnis institusi pen
 - Pengelolaan master mata pelajaran, kelas, dan jurusan.
 - Penjadwalan jadwal belajar mengajar otomatis per hari dan jam.
 - Penginputan dan rekapitulasi nilai akademik siswa (tugas, UTS, UAS).
+- Cetak lembar Rapor Capaian Belajar (E-Rapor) format A4 resmi dengan kop sekolah, rekap absensi, dan kolom tanda tangan pengesahan.
 
 ### 2. Presensi & Absensi Siswa
 - Pencatatan kehadiran harian siswa secara berkala (Hadir, Sakit, Izin, Alpa).
@@ -128,7 +131,7 @@ Sistem dirancang modular untuk mengakomodasi seluruh proses bisnis institusi pen
 
 ### 3. Keuangan & Administrasi (SPP)
 - Pembuatan pos tagihan sekolah per siswa atau per tingkatan kelas.
-- Rekapitulasi pembayaran, validasi transaksi, dan cetak riwayat bukti pembayaran.
+- Rekapitulasi pembayaran, validasi transaksi, dan cetak kuitansi resmi (format A5 landscape dengan terbilang rupiah dinamis).
 
 ### 4. Bimbingan Konseling (BK) & Kedisiplinan
 - Pencatatan insiden pelanggaran siswa beserta bobot poin sanksi.

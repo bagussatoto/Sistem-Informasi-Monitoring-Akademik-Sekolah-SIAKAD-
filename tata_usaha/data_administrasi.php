@@ -152,6 +152,7 @@ $npsn = $_SESSION['npsn'];
                           <th>Pembayaran</th>
                           <th>Tanggal Nota</th>
                           <th>Keterangan</th>
+                          <th>Cetak</th>
                           <th>Aksi</th>
                           <th>Aksi</th>
                         </tr>
@@ -196,11 +197,13 @@ $npsn = $_SESSION['npsn'];
 					 	<td><?php echo $keterangan;?>
 					 	</td>
 					 	<td>
-             <center><a  href="form_edit_pembayaran.php?id=<?php echo $row['id_pembayaran']; ?>" ><input type="submit" class="btn btn-round btn-success" value="Edit"></a>
+             <center><a href="cetak_kuitansi.php?id=<?php echo $row['id_pembayaran']; ?>" target="_blank" class="btn btn-round btn-primary"><span class="fa fa-print"></span> Cetak</a></center>
+            </td>
+            <td>
+             <center><a  href="form_edit_pembayaran.php?id=<?php echo $row['id_pembayaran']; ?>" ><input type="submit" class="btn btn-round btn-success" value="Edit"></a></center>
             </td>
             <td>
             <center><a  href="proses/hapus_administrasi.php?id=<?php echo $row['id_pembayaran']; ?>" ><input type="submit" class="btn btn-round btn-danger" value="Hapus"></a></center>
-					 	</center
             </td>
 					 </tr>
 					 <?php

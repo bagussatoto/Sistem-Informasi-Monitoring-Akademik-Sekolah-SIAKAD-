@@ -193,7 +193,10 @@ $npsn = $_SESSION['npsn'];
                           <td><?php echo $row['tahun'];?>
                           </td>
 					 	<td>
-             <center><a   href="proses/hapus_nilai_siswa.php?id=<?php echo $row['id_nilai']; ?>" ><input type="submit" class="btn btn-round btn-danger" value="Hapus"></a></center>
+             <center>
+               <a href="cetak_rapor.php?nipd=<?php echo $row['nipd']; ?>&semester=<?php echo $row['semester']; ?>" target="_blank" class="btn btn-round btn-primary" title="Cetak Rapor"><span class="fa fa-print"></span> Rapor</a>
+               <a href="proses/hapus_nilai_siswa.php?id=<?php echo $row['id_nilai']; ?>"><input type="submit" class="btn btn-round btn-danger" value="Hapus"></a>
+             </center>
 					 	</td>
 					 </tr>
 					 <?php

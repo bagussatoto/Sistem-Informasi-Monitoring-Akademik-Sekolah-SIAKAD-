@@ -126,8 +126,9 @@ Dokumen ini disusun sebagai panduan teknis dan operasional yang merinci seluruh 
   1. Penginputan nilai tugas harian, nilai Ujian Tengah Semester (UTS), dan Ujian Akhir Semester (UAS).
   2. Perhitungan nilai akhir kumulatif otomatis sesuai bobot persentase evaluasi.
   3. Publikasi nilai yang dapat diakses langsung oleh siswa dan orang tua.
+  4. Pencetakan Lembar Rapor Digital (E-Rapor) resmi format A4 siap cetak/PDF (`cetak_rapor.php`) lengkap dengan kop sekolah, biodata siswa, tabel nilai & bobot, rekapitulasi kehadiran (Sakit, Izin, Alpa), catatan wali kelas, dan 3 kolom pengesahan (Wali Murid, Wali Kelas, Kepala Sekolah).
 * **Input Data**: Nilai angka harian, nilai UTS, nilai UAS, catatan capaian wali kelas.
-* **Output Sistem**: Lembar nilai akademik siswa, transkrip nilai semester, laporan rangking kelas.
+* **Output Sistem**: Lembar nilai akademik siswa, transkrip nilai semester, lembar cetak rapor (`cetak_rapor.php`), laporan rangking kelas.
 * **Tabel Basis Data**: `tb_nilai_akademik`, `tb_pelajaran`, `tb_siswa`.
 
 ---
@@ -139,9 +140,9 @@ Dokumen ini disusun sebagai panduan teknis dan operasional yang merinci seluruh 
   1. Pembuatan pos tagihan rutin bulanan (SPP) maupun biaya insidental (ujian, praktikum, seragam).
   2. Input penerimaan kas pembayaran dari siswa/wali murid.
   3. Validasi status pembayaran (*Lunas* / *Menunggak*).
-  4. Pencetakan bukti kuitansi pembayaran dan rekapitulasi buku kas masuk.
+  4. Pencetakan bukti kuitansi pembayaran resmi format A5 landscape siap cetak/PDF (`cetak_kuitansi.php`) dengan nomor kuitansi otomatis, terbilang rupiah dinamis, rincian pembayaran, dan tanda tangan kasir Tata Usaha.
 * **Input Data**: Jenis tagihan, nominal tagihan, tanggal jatuh tempo, nominal setor, tanggal bayar.
-* **Output Sistem**: Kuitansi pembayaran resmi, laporan buku besar tagihan, rekap tunggakan siswa.
+* **Output Sistem**: Kuitansi pembayaran resmi (`cetak_kuitansi.php`), laporan buku besar tagihan, rekap tunggakan siswa.
 * **Tabel Basis Data**: `tb_tagihan`, `tb_pembayaran`, `tb_siswa`.
 
 ---
