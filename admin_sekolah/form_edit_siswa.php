@@ -153,7 +153,8 @@ $npsn = $_SESSION['npsn'];
 
               
               
-              <li><a href="tentang.php">Tentang Aplikasi</a></li>
+              <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
+                    <li><a href="tentang.php">Tentang Aplikasi</a></li>
               </ul>
             </div>
         </div>
@@ -447,7 +448,8 @@ $npsn = $_SESSION['npsn'];
 
               
               
-              <li><a href="tentang.php">Tentang Aplikasi</a></li>
+              <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
+                    <li><a href="tentang.php">Tentang Aplikasi</a></li>
                   </ul>
             </div>
         </div>       

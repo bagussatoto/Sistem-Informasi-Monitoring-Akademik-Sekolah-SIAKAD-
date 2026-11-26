@@ -155,6 +155,7 @@
 
                     
                     
+                    <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
                     <li><a href="tentang.php">Tentang Aplikasi</a></li>
                   </ul>
                 </div>
@@ -368,7 +369,8 @@
                   <li><a href="data_pesan.php">Data Pesan</a></li>
                 </ul>
               </li>
-              <li><a href="tentang.php">Tentang Aplikasi</a></li>
+              <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
+                    <li><a href="tentang.php">Tentang Aplikasi</a></li>
                   </ul>
             </div>
         </div>       

@@ -133,7 +133,8 @@ $sql_jurusan = mysqli_query($conn,"SELECT * FROM tb_jurusan where npsn='$npsn'")
 
               
               
-              <li><a href="tentang.php">Tentang Aplikasi</a></li>
+              <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
+                    <li><a href="tentang.php">Tentang Aplikasi</a></li>
               </ul>
             </div>
         </div>
@@ -324,7 +325,8 @@ $sql_jurusan = mysqli_query($conn,"SELECT * FROM tb_jurusan where npsn='$npsn'")
 
               
               
-              <li><a href="tentang.php">Tentang Aplikasi</a></li>
+              <li><a href="backup_database.php"><span class="fa fa-database"></span> Backup Database</a></li>
+                    <li><a href="tentang.php">Tentang Aplikasi</a></li>
                   </ul>
             </div>
         </div>       
