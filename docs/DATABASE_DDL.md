@@ -62,7 +62,7 @@ Menyimpan identitas legal institusi sekolah dan menjadi induk relasi isolasi dat
 | `kode_pos` | `VARCHAR(6)` | - | Yes | Kode pos |
 | `tahun_berdiri`| `VARCHAR(4)` | - | Yes | Tahun pendirian institusi |
 | `foto` | `LONGTEXT` | - | Yes | Logo / Foto gedung sekolah |
-| `password` | `VARCHAR(50)` | - | Yes | Kata sandi login admin sekolah (MD5) |
+| `password` | `VARCHAR(255)` | - | Yes | Kata sandi login admin sekolah (BCRYPT / MD5 kompatibel) |
 
 ---
 
@@ -71,7 +71,7 @@ Menyimpan identitas legal institusi sekolah dan menjadi induk relasi isolasi dat
 |---|---|:---:|:---:|---|
 | `id_admin` | `VARCHAR(50)` | - | Yes | ID unik administrator |
 | `nama_admin` | `VARCHAR(50)` | - | Yes | Nama lengkap admin utama |
-| `password` | `VARCHAR(50)` | - | Yes | Sandi login administrator (MD5) |
+| `password` | `VARCHAR(255)` | - | Yes | Sandi login administrator (BCRYPT / MD5 kompatibel) |
 | `foto` | `VARCHAR(50)` | - | Yes | Berkas foto profil admin |
 
 ---
@@ -92,7 +92,7 @@ Menyimpan identitas legal institusi sekolah dan menjadi induk relasi isolasi dat
 | `status_kepegawaian`| `VARCHAR(20)` | - | Yes | Role (`Kepala Sekolah`, `Wali Kelas`, `BK`, `Tata Usaha`) |
 | `pendidikan` | `VARCHAR(20)` | - | Yes | Tingkat pendidikan terakhir |
 | `foto` | `LONGTEXT` | - | Yes | Berkas foto profil |
-| `password` | `VARCHAR(50)` | - | Yes | Sandi login modul (MD5) |
+| `password` | `VARCHAR(255)` | - | Yes | Sandi login modul (BCRYPT / MD5 kompatibel) |
 
 ---
 
@@ -122,8 +122,8 @@ Menyimpan identitas legal institusi sekolah dan menjadi induk relasi isolasi dat
 | `asal_sekolah` | `VARCHAR(20)` | - | Yes | Asal sekolah sebelumnya |
 | `status_sekolah`| `VARCHAR(10)` | - | Yes | Status peserta didik (`Aktif`) |
 | `foto` | `VARCHAR(100)`| - | Yes | Pasfoto siswa |
-| `password_siswa`| `VARCHAR(20)`| - | Yes | Sandi login mandiri siswa (MD5) |
-| `password_wali` | `VARCHAR(20)`| - | Yes | Sandi login pemantauan wali murid (MD5) |
+| `password_siswa`| `VARCHAR(255)`| - | Yes | Sandi login mandiri siswa (BCRYPT / MD5 kompatibel) |
+| `password_wali` | `VARCHAR(255)`| - | Yes | Sandi login pemantauan wali murid (BCRYPT / MD5 kompatibel) |
 
 ---
 

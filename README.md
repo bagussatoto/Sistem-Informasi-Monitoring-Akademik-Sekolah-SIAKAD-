@@ -186,6 +186,7 @@ Sistem SIAKAD dirancang dengan arsitektur web berlapis yang efisien, berkecepata
 ### 2. Komponen Perangkat Lunak (Software Stack)
 - **Runtime Backend**: Native PHP (Kompatibel PHP 5.6 hingga PHP 7.x).
   - Ekstensi wajib: `mysqli` (database), `session` (autentikasi), `fileinfo` & `gd` (pemrosesan foto profil siswa/guru).
+- **Keamanan Kredensial**: Hashing Kata Sandi berbasis standar industri **BCRYPT** (`PASSWORD_BCRYPT` dengan *unique random salt* & *adaptive work factor*). Dilengkapi arsitektur *Seamless Hybrid Migration* yang secara otomatis dan transparan meng-upgrade hash MD5/demo lama menjadi BCRYPT saat pengguna login pertama kali.
 - **Database Management System (DBMS)**: MySQL 5.7+ / MariaDB 10.3+ (Karakter set: `utf8mb4_general_ci`).
 - **Web Server Engine**: Apache HTTP Server 2.4+ (mendukung modul `mod_rewrite` dan berkas `.htaccess`).
 - **Frontend Framework & UI Components**:
@@ -229,7 +230,7 @@ siakad/
 ├── tata_usaha/                  # Modul administrasi & tagihan/keuangan SPP
 ├── wali_kelas/                  # Modul absensi kelas & rapor nilai kelas
 ├── wali_murid/                  # Portal monitoring perkembangan belajar anak
-├── database/                    # Skrip DDL database SQL (sismo_smkit.sql)
+├── database/                    # Skrip DDL database SQL (sismo_smkit.sql, migration_password_bcrypt.sql, triggers_and_functions.sql)
 ├── docs/                        # Dokumentasi Resmi (SRS, Jurnal Ilmiah, FSD: .pdf, .doc, .md)
 └── asset/                       # Vendor CSS, Fonts, Icons, dan Javascript
 ```
@@ -266,6 +267,9 @@ mysql -u root -p sismo_smkit < database/sismo_smkit.sql
 
 # (Opsional) Pasang Stored Functions & Triggers untuk otomasi hitung nilai akhir & status SPP
 mysql -u root -p sismo_smkit < database/triggers_and_functions.sql
+
+# Jika memperbarui dari database lama, jalankan migrasi kolom password ke VARCHAR(255) untuk BCRYPT
+mysql -u root -p sismo_smkit < database/migration_password_bcrypt.sql
 ```
 
 #### Metode B: Melalui antarmuka phpMyAdmin

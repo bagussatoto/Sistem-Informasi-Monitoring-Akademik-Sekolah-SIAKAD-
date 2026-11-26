@@ -59,7 +59,7 @@ INSERT INTO `tb_absensi` (`kode_absensi`, `nipd`, `kode_mapel`, `npsn`, `id_kela
 CREATE TABLE `tb_admin` (
   `id_admin` varchar(50) DEFAULT NULL,
   `nama_admin` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,7 +159,7 @@ CREATE TABLE `tb_karyawan` (
   `telefon` varchar(12) DEFAULT NULL,
   `alamat` longtext,
   `foto` longtext,
-  `password` varchar(100) DEFAULT NULL
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -383,7 +383,7 @@ CREATE TABLE `tb_sekolah` (
   `kode_pos` varchar(6) DEFAULT NULL,
   `tahun_berdiri` varchar(4) DEFAULT NULL,
   `foto` longtext,
-  `password` varchar(50) DEFAULT NULL
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -425,8 +425,8 @@ CREATE TABLE `tb_siswa` (
   `asal_sekolah` varchar(20) DEFAULT NULL,
   `status_sekolah` varchar(10) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
-  `password_siswa` varchar(20) DEFAULT NULL,
-  `password_wali` varchar(20) DEFAULT NULL
+  `password_siswa` varchar(255) DEFAULT NULL,
+  `password_wali` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
